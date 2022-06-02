@@ -1,0 +1,136 @@
+// CV Application Main Script
+// Orchestrates loading of templates and data
+
+// Global variables
+let currentLang = 'es'; // Default language
+
+document.addEventListener('DOMContentLoaded', async function() {
+    console.log('DOM loaded, initializing CV application...');
+
+    try {
+        // No asignar translations ni cvData, usar window.translations y window.cvData directamente
+        console.log('Translations loaded:', window.translations);
+        console.log('CV data loaded:', window.cvData);
+
+        // Initialize observer for animations
+        const observer = window.animateOnScroll();
+        console.log('Observer initialized');
+
+        // Initialize with default language
+        await switchLanguage(currentLang, observer);
+        console.log('Language initialized');
+
+        // Setup interactions
+        window.setupSmoothScrolling();
+        window.setupScrollSpy();
+        setupLanguageSwitcher(observer);
+        console.log('CV application initialized successfully');
+
+    } catch (error) {
+        console.error('Error initializing CV application:', error);
+    }
+});
+
+// Load translations and CV data (already loaded via script tags)
+function loadTranslations() {
+    // Translations are loaded via script tag in HTML, so they're available globally
+    return window.translations;
+}
+
+function loadCVData() {
+    // CV data is loaded via script tag in HTML, so it's available globally
+    return window.cvData;
+}
+
+function loadAllTemplates() {
+    console.log('Loading templates...');
+
+    // Load navbar first
+    const navbarContainer = document.getElementById('navbar-container');
+    const navbarPromise = window.loadTemplate('templates/navbar.html').then(function(navbarContent) {
+        navbarContent = window.replacePlaceholders(navbarContent, window.translations, currentLang);
+        navbarContainer.innerHTML = navbarContent;
+        console.log('Navbar template loaded');
+        return navbarContent;
+    }).catch(function(error) {
+        console.error('Failed to load navbar template:', error);
+        throw error;
+    });
+
+    // Load main content templates
+    const mainContent = document.getElementById('main-content');
+    const templates = [
+        'templates/hero.html',
+        'templates/about.html',
+        'templates/skills.html',
+        'templates/experience.html',
+        'templates/education.html',
+        'templates/projects.html',
+        'templates/certifications.html',
+        'templates/contact.html'
+    ];
+
+    const templatePromises = templates.map(function(template) {
+        return window.loadTemplate(template).then(function(templateContent) {
+            templateContent = window.replacePlaceholders(templateContent, window.translations, currentLang);
+            window.insertTemplate(mainContent, templateContent);
+            console.log(`Template ${template} loaded`);
+            return templateContent;
+        }).catch(function(error) {
+            console.error(`Failed to load template ${template}:`, error);
+            throw error;
+        });
+    });
+
+    return Promise.all([navbarPromise, ...templatePromises]);
+}
+
+
+async function switchLanguage(lang, observer) {
+    console.log('Switching language to:', lang);
+    currentLang = lang;
+
+    // Clear existing content
+    clearContent();
+
+    // Reload templates with new language
+    await loadAllTemplates();
+
+    // Update language indicator
+    const t = window.translations[currentLang];
+    const langElem = document.getElementById('current-lang');
+    if (langElem) {
+        langElem.textContent = t['lang_' + lang];
+    }
+
+    // Reload all data with new language
+    window.loadPersonalInfo(window.cvData, currentLang);
+    window.loadSkills(window.cvData, currentLang, observer, window.translations);
+    window.loadExperience(window.cvData, currentLang, observer);
+    window.loadEducation(window.cvData, currentLang, observer, window.translations);
+    window.loadProjects(window.cvData, currentLang, observer, window.translations);
+    window.loadCertifications(window.cvData, currentLang, observer, window.translations);
+
+    // Re-setup language switcher since navbar was reloaded
+    setupLanguageSwitcher(observer);
+    console.log('Language switched successfully');
+}
+
+function clearContent() {
+    const navbarContainer = document.getElementById('navbar-container');
+    const mainContent = document.getElementById('main-content');
+    navbarContainer.innerHTML = '';
+    mainContent.innerHTML = '';
+}
+
+function setupLanguageSwitcher(observer) {
+    document.querySelectorAll('[data-lang]').forEach(link => {
+        link.addEventListener('click', async (e) => {
+            e.preventDefault();
+            const lang = e.target.getAttribute('data-lang');
+            if (lang !== currentLang) {
+                await switchLanguage(lang, observer);
+            }
+        });
+    });
+}
