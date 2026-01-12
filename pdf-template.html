@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Rafael Guzmán</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0066cc;
+            --secondary-color: #28a745;
+            --dark-color: #333;
+            --light-color: #f8f9fa;
+            --white: #fff;
+            --gray: #6c757d;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 14px;
+            line-height: 1.3;
+            margin: 15px;
+            color: var(--dark-color);
+            background: var(--white);
+        }
+        .pdf-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        .left-column, .right-column {
+            display: flex;
+            flex-direction: column;
+        }
+        .section { margin-bottom: 8px; }
+        .hero-section {
+            text-align: center;
+            margin-bottom: 10px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 8px;
+        }
+        .profile-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 3px solid var(--primary-color);
+            margin-bottom: 5px;
+        }
+        #hero-name { font-size: 16px; font-weight: bold; color: var(--primary-color); margin: 5px 0; }
+        #hero-title { font-size: 12px; color: var(--gray); margin: 3px 0; }
+        #hero-location, #hero-email { font-size: 9px; color: var(--gray); margin: 2px 0; }
+        .section-title {
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .skills-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .skill-category {
+            background: var(--light-color);
+            padding: 5px;
+            border-radius: 5px;
+            border-left: 3px solid var(--primary-color);
+        }
+        .skill-category-title {
+            font-weight: bold;
+            font-size: 11px;
+            margin-bottom: 3px;
+            color: var(--primary-color);
+        }
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3px;
+        }
+        .skill-item {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-size: 9px;
+            font-weight: 500;
+        }
+        .experience-card, .education-card, .certification-card {
+            background: var(--light-color);
+            padding: 5px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            border-left: 3px solid var(--secondary-color);
+        }
+        .company-logo, .school-logo {
+            width: 30px;
+            height: 30px;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+        .company-name, .school-name {
+            font-weight: bold;
+            font-size: 11px;
+            color: var(--primary-color);
+        }
+        .position-title { font-size: 10px; color: var(--dark-color); margin: 2px 0; }
+        .experience-duration, .education-location {
+            font-size: 9px;
+            color: var(--gray);
+            margin-bottom: 3px;
+        }
+        .experience-description {
+            font-size: 9px;
+            margin-top: 3px;
+            padding-left: 10px;
+        }
+        .experience-description li { margin-bottom: 2px; }
+        @media print {
+            body { margin: 10px; }
+            .hero-section { page-break-after: avoid; }
+            .section { page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <!-- Hero Section -->
+        <section class="hero-section section">
+            <img id="profile-image" src="data/avatar.jpg" alt="Profile" class="profile-image">
+            <h1 id="hero-name">Rafael Guzmán</h1>
+            <h2 id="hero-title">Ingeniero DevOps</h2>
+            <p id="hero-location"><i class="fas fa-map-marker-alt me-1"></i>Granada, España</p>
+            <p id="hero-email">rafagval@gmail.com</p>
+        </section>
+
+        <!-- About Section -->
+        <section class="section">
+            <h3 class="section-title" id="about-title">Acerca de Mí</h3>
+            <p id="about-summary">Ingeniero DevOps con experiencia en desarrollo de pipelines CI/CD, gestión de infraestructuras en la nube y despliegue de aplicaciones móviles. Graduado en Ingeniería Informática por la Universidad de Granada, apasionado por la automatización de procesos y la mejora de la eficiencia operativa.</p>
+        </section>
+
+        <div class="pdf-grid">
+            <div class="left-column">
+                <!-- Skills Section -->
+                <section class="section">
+                    <h3 class="section-title" id="skills-title">Habilidades Técnicas</h3>
+                    <div class="skills-container" id="skills-container">
+                        <!-- Skills will be populated -->
+                    </div>
+                </section>
+
+                <!-- Education Section -->
+                <section class="section">
+                    <h3 class="section-title" id="education-title">Educación</h3>
+                    <div id="education-container">
+                        <!-- Education will be populated -->
+                    </div>
+                </section>
+
+                <!-- Certifications Section -->
+                <section class="section">
+                    <h3 class="section-title" id="certifications-title">Certificaciones</h3>
+                    <div id="certifications-container">
+                        <!-- Certifications will be populated -->
+                    </div>
+                </section>
+            </div>
+
+            <div class="right-column">
+                <!-- Experience Section -->
+                <section class="section">
+                    <h3 class="section-title" id="experience-title">Experiencia Laboral</h3>
+                    <div id="experience-container">
+                        <!-- Experience will be populated -->
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script src="data/cv-data.js"></script>
+    <script src="data/translations.js"></script>
+    <script>
+        window.onload = function() {
+            // Get language from URL parameter, default to 'es'
+            const urlParams = new URLSearchParams(window.location.search);
+            const lang = urlParams.has('lang') && ['en', 'es'].includes(urlParams.get('lang')) ? urlParams.get('lang') : 'es';
+
+            const data = window.cvData[lang];
+            const shared = window.cvData.shared;
+            const t = window.translations[lang];
+
+            // Populate content
+            document.getElementById('hero-name').textContent = data?.personal?.name || 'Rafael Guzmán';
+            document.getElementById('hero-title').textContent = data?.personal?.title || 'Ingeniero DevOps';
+            document.getElementById('hero-location').innerHTML = `<i class="fas fa-map-marker-alt me-1"></i>${data?.personal?.location || 'Granada, España'}`;
+            document.getElementById('hero-email').textContent = shared?.personal?.email || 'rafagval@gmail.com';
+
+            document.getElementById('about-title').textContent = t?.about_title || 'Acerca de Mí';
+            document.getElementById('about-summary').textContent = data?.summary || 'Ingeniero DevOps con experiencia...';
+            document.getElementById('skills-title').textContent = t?.skills_title || 'Habilidades Técnicas';
+            document.getElementById('experience-title').textContent = t?.nav_experience || 'Experiencia Laboral';
+            document.getElementById('education-title').textContent = t?.nav_education || 'Educación';
+            document.getElementById('certifications-title').textContent = t?.nav_certifications || 'Certificaciones';
+
+        // Skills
+        const skillsContainer = document.getElementById('skills-container');
+        const skillCategories = {};
+        shared.skills.forEach(skill => {
+            if (!skillCategories[skill.category]) skillCategories[skill.category] = [];
+            skillCategories[skill.category].push(skill);
+        });
+        Object.keys(skillCategories).forEach(cat => {
+            const catDiv = document.createElement('div');
+            catDiv.className = 'skill-category';
+            const catName = t['skill_cat_' + cat];
+            catDiv.innerHTML = `<div class="skill-category-title">${catName}</div><div class="skill-list">${skillCategories[cat].map(skill => {
+                return `<span class="skill-item">${skill.name}</span>`;
+            }).join('')}</div>`;
+            skillsContainer.appendChild(catDiv);
+        });
+
+        // Experience
+        const experienceContainer = document.getElementById('experience-container');
+        data.experience.forEach(exp => {
+            const expDiv = document.createElement('div');
+            expDiv.className = 'experience-card';
+            expDiv.innerHTML = `
+                ${exp.logo ? `<img src="${exp.logo}" alt="${exp.company} logo" class="company-logo">` : ''}<div class="company-name">${exp.company}</div>
+                <div class="position-title">${exp.position}</div>
+                <div class="experience-duration">${exp.duration} - ${exp.location}</div>
+                ${exp.clients && exp.clients.length ? `<div>${t.clients_label}: ${exp.clients.join(', ')}</div>` : ''}
+                <ul class="experience-description">${exp.description.map(desc => `<li>${desc}</li>`).join('')}</ul>
+            `;
+            experienceContainer.appendChild(expDiv);
+        });
+
+        // Education
+        const educationContainer = document.getElementById('education-container');
+        data.education.forEach(edu => {
+            const eduDiv = document.createElement('div');
+            eduDiv.className = 'education-card';
+            eduDiv.innerHTML = `
+                ${edu.logo ? `<img src="${edu.logo}" alt="${edu.school} logo" class="school-logo">` : ''}<div class="school-name">${edu.school}</div>
+                <div class="position-title">${edu.degree}</div>
+                <div class="education-location">${edu.duration} - ${edu.location}</div>
+                <div>GPA: ${edu.gpa}</div>
+            `;
+            educationContainer.appendChild(eduDiv);
+        });
+
+        // Certifications
+        const certificationsContainer = document.getElementById('certifications-container');
+        shared.certifications.forEach(cert => {
+            const certDiv = document.createElement('div');
+            certDiv.className = 'certification-card';
+            certDiv.innerHTML = `
+                ${cert.logo ? `<img src="${cert.logo}" alt="${cert.name} logo" class="company-logo">` : ''}<div class="company-name">${cert.name}</div>
+                <div class="position-title">${cert.issuer}</div>
+                <div class="experience-duration">${cert.date} - ${cert.credentialId}</div>
+            `;
+            certificationsContainer.appendChild(certDiv);
+        });
+        };
+    </script>
+</body>
+</html>
