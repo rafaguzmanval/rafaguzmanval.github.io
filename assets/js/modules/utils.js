@@ -46,15 +46,21 @@ function setupSmoothScrolling() {
     });
 }
 
+let scrollSpyInitialized = false;
+
 function setupScrollSpy() {
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+    if (scrollSpyInitialized) return;
+    scrollSpyInitialized = true;
 
     window.addEventListener('scroll', () => {
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
         let current = '';
+        const scrollY = window.pageYOffset;
         sections.forEach(section => {
             const sectionTop = section.offsetTop - 100;
-            if (pageYOffset >= sectionTop) {
+            const sectionHeight = section.offsetHeight;
+            if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
                 current = section.getAttribute('id');
             }
         });

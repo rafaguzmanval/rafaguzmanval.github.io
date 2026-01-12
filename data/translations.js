@@ -8,7 +8,6 @@ const translations = {
     nav_skills: "Skills",
     nav_experience: "Experience",
     nav_education: "Education",
-    nav_projects: "Projects",
     nav_certifications: "Certifications",
     nav_contact: "Contact",
 
@@ -20,7 +19,6 @@ const translations = {
     skills_title: "Technical Skills",
     experience_title: "Professional Experience",
     education_title: "Education",
-    projects_title: "Featured Projects",
     certifications_title: "Certifications",
     contact_title: "Get In Touch",
 
@@ -66,7 +64,6 @@ const translations = {
     nav_skills: "Habilidades",
     nav_experience: "Experiencia",
     nav_education: "Educación",
-    nav_projects: "Proyectos",
     nav_certifications: "Certificaciones",
     nav_contact: "Contacto",
 
@@ -78,7 +75,6 @@ const translations = {
     skills_title: "Habilidades Técnicas",
     experience_title: "Experiencia Profesional",
     education_title: "Educación",
-    projects_title: "Proyectos Destacados",
     certifications_title: "Certificaciones",
     contact_title: "Ponte en Contacto",
 

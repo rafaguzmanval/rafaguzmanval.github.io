@@ -65,7 +65,6 @@ function loadAllTemplates() {
         'templates/skills.html',
         'templates/experience.html',
         'templates/education.html',
-        'templates/projects.html',
         'templates/certifications.html',
         'templates/contact.html'
     ];
@@ -117,7 +116,6 @@ async function switchLanguage(lang, observer) {
     window.loadSkills(window.cvData, currentLang, observer, window.translations);
     window.loadExperience(window.cvData, currentLang, observer, window.translations);
     window.loadEducation(window.cvData, currentLang, observer, window.translations);
-    window.loadProjects(window.cvData, currentLang, observer, window.translations);
     window.loadCertifications(window.cvData, currentLang, observer, window.translations);
 
     // Re-setup interactions since navbar was reloaded
