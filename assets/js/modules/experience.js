@@ -1,8 +1,9 @@
 // Experience section loading module
 
-function loadExperience(cvData, currentLang, observer) {
+function loadExperience(cvData, currentLang, observer, translations) {
     const experienceContainer = document.getElementById('experience-container');
     const langData = cvData[currentLang];
+    const t = translations[currentLang];
 
     langData.experience.forEach(exp => {
         const experienceItem = document.createElement('div');
@@ -18,12 +19,12 @@ function loadExperience(cvData, currentLang, observer) {
                 </div>
                 ${exp.clients && exp.clients.length > 0 ? `
                 <div class="experience-clients">
-                    <strong>Clients:</strong> ${exp.clients.join(', ')}
+                    <strong>${t.clients_label}:</strong> ${exp.clients.join(', ')}
                 </div>
                 ` : ''}
                 ${exp.technologiesLearned && exp.technologiesLearned.length > 0 ? `
                 <div class="experience-technologies">
-                    <strong>Technologies & Skills Learned:</strong>
+                    <strong>${t.technologies_label}:</strong>
                     <div class="tech-tags">
                         ${exp.technologiesLearned.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
                     </div>

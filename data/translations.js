@@ -43,6 +43,8 @@ const translations = {
     // Experience
     duration_label: "Duration",
     location_label: "Location",
+    clients_label: "Clients",
+    technologies_label: "Technologies & Skills Learned",
 
     // Education
     gpa_label: "GPA",
@@ -99,9 +101,11 @@ const translations = {
     // Experience
     duration_label: "Duración",
     location_label: "Ubicación",
+    clients_label: "Clientes",
+    technologies_label: "Tecnologías y Habilidades Aprendidas",
 
     // Education
-    gpa_label: "Promedio",
+    gpa_label: "Nota Media",
 
     // Projects
     project_code: "Código",

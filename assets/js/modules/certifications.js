@@ -7,7 +7,7 @@ function loadCertifications(cvData, currentLang, observer, translations) {
 
     sharedData.certifications.forEach(cert => {
         const certificationCard = document.createElement('div');
-        certificationCard.className = 'col-md-6 col-lg-4';
+        certificationCard.className = 'col-lg-6 mx-auto';
         certificationCard.innerHTML = `
             <div class="certification-card">
                 ${cert.logo ? `<img src="${cert.logo}" alt="${cert.name} logo" class="certification-logo">` : ''}

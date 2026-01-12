@@ -73,7 +73,6 @@ function loadAllTemplates() {
     const templatePromises = templates.map(function(template) {
         return window.loadTemplate(template).then(function(templateContent) {
             templateContent = window.replacePlaceholders(templateContent, window.translations, currentLang);
-            window.insertTemplate(mainContent, templateContent);
             console.log(`Template ${template} loaded`);
             return templateContent;
         }).catch(function(error) {
@@ -82,13 +81,23 @@ function loadAllTemplates() {
         });
     });
 
-    return Promise.all([navbarPromise, ...templatePromises]);
+    // Wait for all templates to load, then insert in order
+    const allTemplatesPromise = Promise.all(templatePromises).then(templateContents => {
+        templateContents.forEach(content => {
+            window.insertTemplate(mainContent, content);
+        });
+    });
+
+    return Promise.all([navbarPromise, allTemplatesPromise]);
 }
 
 
 async function switchLanguage(lang, observer) {
     console.log('Switching language to:', lang);
     currentLang = lang;
+
+    // Save current scroll position
+    const scrollY = window.scrollY;
 
     // Clear existing content
     clearContent();
@@ -106,13 +115,19 @@ async function switchLanguage(lang, observer) {
     // Reload all data with new language
     window.loadPersonalInfo(window.cvData, currentLang);
     window.loadSkills(window.cvData, currentLang, observer, window.translations);
-    window.loadExperience(window.cvData, currentLang, observer);
+    window.loadExperience(window.cvData, currentLang, observer, window.translations);
     window.loadEducation(window.cvData, currentLang, observer, window.translations);
     window.loadProjects(window.cvData, currentLang, observer, window.translations);
     window.loadCertifications(window.cvData, currentLang, observer, window.translations);
 
-    // Re-setup language switcher since navbar was reloaded
+    // Re-setup interactions since navbar was reloaded
+    window.setupSmoothScrolling();
+    window.setupScrollSpy();
     setupLanguageSwitcher(observer);
+
+    // Restore scroll position
+    setTimeout(() => window.scrollTo(0, scrollY), 50);
+
     console.log('Language switched successfully');
 }
 

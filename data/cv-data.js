@@ -67,42 +67,41 @@ const cvData = {
     ]
   },
 
-  // English language data
   en: {
     personal: {
       title: "DevOps Engineer",
       location: "Granada, Spain"
     },
-    summary: "DevOps Engineer with experience in CI/CD pipeline development, cloud infrastructure management, and mobile application deployment. Computer Engineering graduate from the University of Granada, passionate about process automation and operational efficiency improvement.",
+    summary: "DevOps Engineer with experience in CI/CD pipeline development, cloud infrastructure management, and mobile application deployment. Computer Engineering graduate from the University of Granada, passionate about process automation and improving operational efficiency.",
     experience: [
-      {
-        company: "Metaenlace",
-        position: "DevOps Engineer",
-        duration: "Nov 2023 - Jul 2025",
-        location: "Granada, Spain",
-        clients: ["Spanish City Councils", "AR/VR Development Company"],
-        technologiesLearned: ["Jenkins", "Fastlane", "Google Play", "Apple App Store", "Meta Quest 3", "Unity", "C#"],
-        logo: "https://arvision.es/wp-content/uploads/2024/01/logoar.webp",
-        description: [
-          "Built continuous deployment pipelines for Google Play and Apple App Store using Jenkins and Fastlane",
-          "Reduced deployment time for over 100 apps from 1 month to 1 day",
-          "Collaborated with development team to fix bugs and optimize mobile application performance",
-          "Developed a virtual reality application for Meta Quest 3 glasses"
-        ]
-      },
       {
         company: "Metaenlace",
         position: "DevOps Engineer",
         duration: "Nov 2025 - Present",
         location: "Remote",
-        clients: ["Public Administration", "Banking Entities", "Spanish Companies"],
+        clients: ["Public Administration", "Banking", "Spanish Companies"],
         technologiesLearned: ["Kubernetes", "Helm", "Terraform", "Jenkins", "Ansible", "Nexus", "Keycloak", "MLOps", "LLM"],
-        logo: "https://metaenlace.com/wp-content/uploads/2020/03/logo-metaenlace.png",
+        logo: "https://metaenlace.com/wp-content/uploads/2018/08/metaenlace-talento-tecnologico.png",
         description: [
-          "Completed a one-month internal training to learn Kubernetes, Terraform, Ansible and Nexus",
-          "Implemented Jenkins pipelines for Angular and Spring Boot applications, uploading artifacts to Nexus and Azure",
-          "Learned to use Keycloak for SSO integration with digital certificate (FNMT) in Murcia Development Institute web applications",
-          "MLOps for AI project translating legacy source code to modern languages using Large Language Models (LLM)"
+          "📚 Completed a one-month internal training program focused on Kubernetes, Terraform, Ansible, and Nexus",
+          "🔧 Implemented Jenkins pipelines for Angular and Spring Boot applications, publishing artifacts to Nexus and Azure",
+          "🔐 Integrated Keycloak for SSO authentication using digital x.509 certificates (FNMT)",
+          "🤖 Worked on MLOps initiatives for an AI project focused on translating legacy source code into modern languages using Large Language Models (LLM)"
+        ]
+      },
+      {
+        company: "AR Vision",
+        position: "DevOps Engineer",
+        duration: "Nov 2023 - Jul 2025",
+        location: "Granada, Spain",
+        clients: ["Spanish City Councils", "AR/VR Technology Companies"],
+        technologiesLearned: ["Jenkins", "Fastlane", "Google Play", "Apple App Store", "Meta Quest 3", "Unity", "C#"],
+        logo: "https://arvision.es/wp-content/uploads/2024/01/logoar.webp",
+        description: [
+          "🚀 Built continuous deployment pipelines for Google Play and the Apple App Store using Jenkins and Fastlane",
+          "⚡ Reduced deployment time for more than 100 applications from one month to one day",
+          "🤝 Collaborated with the development team to fix bugs and optimize mobile application performance",
+          "🥽 Developed a virtual reality application for Meta Quest 3 headsets"
         ]
       }
     ],
@@ -112,39 +111,38 @@ const cvData = {
         school: "University of Granada",
         duration: "2018 - 2023",
         location: "Granada, Spain",
-        gpa: "7.5/10.0",
-        logo: "https://www.ugr.es/sites/default/files/ugr-logo.png"
+        gpa: "7.5 / 10.0",
+        logo: "https://i0.wp.com/canal.ugr.es/wp-content/uploads/2017/07/logo-UGR-color-vertical.jpg"
       }
     ],
     projects: [
       {
         name: "Cloud Migration Toolkit",
-        description: "Open-source toolkit for automating cloud migrations with Terraform and Ansible"
+        description: "Open-source toolkit for automating cloud migrations using Terraform and Ansible"
       }
     ]
   },
 
-  // Spanish language data
   es: {
     personal: {
-      title: "Ingeniero de Software DevOps",
+      title: "Ingeniero DevOps",
       location: "Granada, España"
     },
-    summary: "Ingeniero DevOps con experiencia en desarrollo de pipelines CI/CD, gestión de infraestructuras cloud y despliegue de aplicaciones móviles. Graduado en Ingeniería Informática por la Universidad de Granada, apasionado por la automatización de procesos y la mejora de la eficiencia operativa.",
+    summary: "Ingeniero DevOps con experiencia en desarrollo de pipelines CI/CD, gestión de infraestructuras en la nube y despliegue de aplicaciones móviles. Graduado en Ingeniería Informática por la Universidad de Granada, apasionado por la automatización de procesos y la mejora de la eficiencia operativa.",
     experience: [
       {
         company: "Metaenlace",
         position: "Ingeniero DevOps",
         duration: "Nov 2025 - Presente",
-        location: "Remote",
-        clients: ["Public Administration", "Banking Entities", "Spanish Companies"],
+        location: "Remoto",
+        clients: ["Administración Pública", "Entidades Bancarias", "Empresas Españolas"],
         technologiesLearned: ["Kubernetes", "Helm", "Terraform", "Jenkins", "Ansible", "Nexus", "Keycloak", "MLOps", "LLM"],
-        logo: "https://metaenlace.com/wp-content/uploads/2020/03/logo-metaenlace.png",
+        logo: "https://metaenlace.com/wp-content/uploads/2018/08/metaenlace-talento-tecnologico.png",
         description: [
-          "Completé un entrenamiento interno de un mes para aprender Kubernetes, Terraform, Ansible y Nexus",
-          "Implementé pipelines de Jenkins para aplicaciones Angular y Spring Boot, subiendo artefactos a Nexus y Azure",
-          "Aprendí a usar Keycloak para integración SSO con certificado digital (FNMT) en aplicaciones web del Instituto de Desarrollo de Murcia",
-          "MLOps para proyecto de IA traduciendo código fuente legacy a lenguajes modernos usando Modelos de Lenguaje Grande (LLM)"
+          "📚 Completé un programa interno de formación de un mes enfocado en Kubernetes, Terraform, Ansible y Nexus",
+          "🔧 Implementé pipelines de Jenkins para aplicaciones Angular y Spring Boot, subiendo artefactos en Nexus y Azure",
+          "🔐 Integré Keycloak para autenticación SSO mediante certificado digital (FNMT)",
+          "🤖 Participé en iniciativas de MLOps para un proyecto de IA orientado a traducir código legacy a lenguajes modernos utilizando LLMs"
         ]
       },
       {
@@ -152,13 +150,14 @@ const cvData = {
         position: "Ingeniero DevOps",
         duration: "Nov 2023 - Jul 2025",
         location: "Granada, España",
-        clients: ["Spanish City Councils", "AR/VR Development Company"],
+        clients: ["Ayuntamientos Españoles", "Empresas de Tecnología AR/VR"],
         technologiesLearned: ["Jenkins", "Fastlane", "Google Play", "Apple App Store", "Meta Quest 3", "Unity", "C#"],
+        logo: "https://arvision.es/wp-content/uploads/2024/01/logoar.webp",
         description: [
-          "Construí pipelines de despliegue continuo para Google Play y Apple App Store usando Jenkins y Fastlane",
-          "Reduje el tiempo de despliegue para más de 100 aplicaciones de 1 mes a 1 día",
-          "Colaboré con el equipo de desarrollo para corregir bugs y optimizar el rendimiento de aplicaciones móviles",
-          "Desarrollé una aplicación de realidad virtual para gafas Meta Quest 3"
+          "🚀 Construí pipelines de despliegue continuo para Google Play y la App Store de Apple utilizando Jenkins y Fastlane",
+          "⚡ Reduje el tiempo de despliegue para más de 100 aplicaciones de un mes a un día",
+          "🤝 Colaboré con el equipo de desarrollo para corregir errores y optimizar el rendimiento de aplicaciones móviles",
+          "🥽 Desarrollé una aplicación de realidad virtual para cascos Meta Quest 3"
         ]
       }
     ],
@@ -168,18 +167,19 @@ const cvData = {
         school: "Universidad de Granada",
         duration: "2018 - 2023",
         location: "Granada, España",
-        gpa: "7.5/10.0",
-        logo: "https://www.ugr.es/sites/default/files/ugr-logo.png"
+        gpa: "7.5 / 10.0",
+        logo: "https://i0.wp.com/canal.ugr.es/wp-content/uploads/2017/07/logo-UGR-color-vertical.jpg"
       }
-     ],
-     projects: [
-       {
-         name: "Kit de Herramientas de Migración a la Nube",
-         description: "Herramientas de código abierto para automatizar migraciones a la nube con Terraform y Ansible"
-       }
-     ]
-   }
- };
+    ],
+    projects: [
+      {
+        name: "Kit de Migración a la Nube",
+        description: "Conjunto de herramientas de código abierto para automatizar migraciones a la nube con Terraform y Ansible"
+      }
+    ]
+  }
+}
+;
 
 // Make it available globally for script tag loading
 if (typeof window !== 'undefined') {
