@@ -142,7 +142,7 @@ const cvData = {
           "📚 Completé un programa interno de formación de un mes enfocado en Kubernetes, Terraform, Ansible y Nexus",
           "🔧 Implementé pipelines de Jenkins para aplicaciones Angular y Spring Boot, subiendo artefactos en Nexus y Azure",
           "🔐 Integré Keycloak para autenticación SSO mediante certificado digital (FNMT)",
-          "🤖 Participé en iniciativas de MLOps para un proyecto de IA orientado a traducir código legacy a lenguajes modernos utilizando LLMs"
+          "🤖 Participé como MLOps para un proyecto de IA orientado a traducir código legacy a lenguajes modernos utilizando LLMs"
         ]
       },
       {
