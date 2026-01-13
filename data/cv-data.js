@@ -18,6 +18,7 @@ const cvData = {
       // ================= SYSTEMS =================
       { name: "Linux", level: 90, category: "systems" },
       { name: "Bash", level: 90, category: "systems" },
+      { name: "VMs (Virtualbox)", level: 90, category: "systems" },
       { name: "Windows", level: 70, category: "systems" },
       { name: "MacOS", level: 60, category: "systems" },
 
