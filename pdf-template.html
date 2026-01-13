@@ -68,7 +68,7 @@
             color: white;
             text-align: center;
             margin-bottom: 0;
-            padding: 15px 15px;
+            padding: 10px 10px;
             position: relative;
             overflow: hidden;
         }
@@ -85,44 +85,65 @@
         }
         
         .profile-image {
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
             border: 3px solid rgba(255, 255, 255, 0.3);
-            margin: 0 auto 8px;
+            margin: 0 auto 5px;
             object-fit: cover;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
         #hero-name { 
-            font-size: 20px; 
+            font-size: 18px; 
             font-weight: 700; 
-            margin: 3px 0; 
+            margin: 2px 0; 
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
             position: relative;
             z-index: 1;
         }
         
         #hero-title { 
-            font-size: 12px; 
+            font-size: 11px; 
             opacity: 0.9; 
-            margin: 2px 0; 
+            margin: 1px 0; 
             font-weight: 500;
             position: relative;
             z-index: 1;
         }
         
-        .hero-contact {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 10px;
-            position: relative;
-            z-index: 1;
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
         }
         
-        #hero-location, #hero-email { 
+        .hero-left, .hero-right {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .hero-left {
+            align-items: center;
+            text-align: center;
+        }
+        
+        .hero-right {
+            justify-content: flex-start;
+        }
+        
+        .hero-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-top: 0;
+            position: relative;
+            z-index: 1;
+            text-align: left;
+        }
+        
+        #hero-location, #hero-email, #hero-phone, #hero-linkedin { 
             font-size: 10px; 
             opacity: 0.9; 
             margin: 1px 0; 
@@ -181,12 +202,13 @@
         
         .experience-card, .education-card, .certification-card {
             background: linear-gradient(to right, #f8f9fa, #ffffff);
-            padding: 12px;
-            margin-bottom: 12px;
+            padding: 8px;
+            margin-bottom: 8px;
             border-radius: 8px;
             border-left: 4px solid var(--secondary-color);
             box-shadow: var(--section-shadow);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
+            font-size: 10px;
         }
         
         .experience-card:hover, .education-card:hover, .certification-card:hover {
@@ -197,9 +219,9 @@
         .education-gpa {
             font-weight: 600;
             color: var(--secondary-color);
-            font-size: 11px;
-            margin-top: 8px;
-            padding: 6px 10px;
+            font-size: 10px;
+            margin-top: 6px;
+            padding: 4px 8px;
             background: rgba(13, 157, 118, 0.1);
             border-radius: 4px;
             display: inline-block;
@@ -209,20 +231,20 @@
         .education-degree {
             font-weight: 600;
             color: var(--primary-color);
-            margin: 5px 0;
+            margin: 4px 0;
         }
         
         .certification-issuer {
             font-weight: 600;
             color: var(--secondary-color);
-            font-size: 11px;
-            margin: 5px 0;
+            font-size: 10px;
+            margin: 3px 0;
         }
         
         .certification-details {
-            font-size: 10px;
+            font-size: 9px;
             color: var(--gray);
-            margin-top: 4px;
+            margin-top: 2px;
         }
         
         .job-position {
@@ -365,14 +387,22 @@
 </head>
 <body>
     <div class="container-fluid">
-        <!-- Hero Section -->
+        <!-- Hero Section with two columns -->
         <section class="hero-section section">
-            <img id="profile-image" src="data/avatar.jpg" alt="Profile" class="profile-image">
-            <h1 id="hero-name">Rafael Guzmán</h1>
-            <h2 id="hero-title">Ingeniero DevOps</h2>
-            <div class="hero-contact">
-                <p id="hero-location"><i class="fas fa-map-marker-alt"></i> Granada, España</p>
-                <p id="hero-email"><i class="fas fa-envelope"></i> rafagval@gmail.com</p>
+            <div class="hero-grid">
+                <div class="hero-left">
+                    <img id="profile-image" src="data/avatar.jpg" alt="Profile" class="profile-image">
+                    <h1 id="hero-name">Rafael Guzmán</h1>
+                    <h2 id="hero-title">Ingeniero DevOps</h2>
+                </div>
+                <div class="hero-right">
+                    <div class="hero-contact">
+                        <p id="hero-location"><i class="fas fa-map-marker-alt"></i> Granada, España</p>
+                        <p id="hero-email"><i class="fas fa-envelope"></i> rafagval@gmail.com</p>
+                        <p id="hero-phone"><i class="fas fa-phone"></i> +34 609 766 130</p>
+                        <p id="hero-linkedin"><i class="fab fa-linkedin"></i> rafael-g-710111259</p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -438,6 +468,8 @@
             document.getElementById('hero-title').textContent = data?.personal?.title || 'Ingeniero DevOps';
             document.getElementById('hero-location').innerHTML = `<i class="fas fa-map-marker-alt"></i> ${data?.personal?.location || 'Granada, España'}`;
             document.getElementById('hero-email').innerHTML = `<i class="fas fa-envelope"></i> ${shared?.personal?.email || 'rafagval@gmail.com'}`;
+            document.getElementById('hero-phone').innerHTML = `<i class="fas fa-phone"></i> ${shared?.personal?.phone || '+34 609 766 130'}`;
+            document.getElementById('hero-linkedin').innerHTML = `<i class="fab fa-linkedin"></i> ${shared?.personal?.linkedin.split('/').pop() || 'rafagval'}`;
 
             // Actualizar títulos de secciones (ahora están dentro de spans)
             document.querySelector('#about-title').textContent = t?.about_title || 'Acerca de Mí';
