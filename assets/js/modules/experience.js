@@ -1,6 +1,6 @@
 // Experience section loading module
 
-function loadExperience(cvData, currentLang, observer, translations) {
+export function loadExperience(cvData, currentLang, observer, translations) {
     const experienceContainer = document.getElementById('experience-container');
     const langData = cvData[currentLang];
     const t = translations[currentLang];
@@ -10,28 +10,28 @@ function loadExperience(cvData, currentLang, observer, translations) {
         experienceItem.className = 'timeline-item';
         experienceItem.innerHTML = `
             <div class="experience-card">
-                ${exp.logo ? `<img src="${exp.logo}" alt="${exp.company} logo" class="company-logo">` : ''}
-                <div class="company-name">${exp.company}</div>
-                <div class="position-title">${exp.position}</div>
+                \${exp.logo ? \`<img src="\${exp.logo}" alt="\${exp.company} logo" class="company-logo">\` : ''}
+                <div class="company-name">\${exp.company}</div>
+                <div class="position-title">\${exp.position}</div>
                 <div class="experience-duration">
-                    <i class="fas fa-calendar me-2"></i>${exp.duration} |
-                    <i class="fas fa-map-marker-alt ms-2 me-1"></i>${exp.location}
+                    <i class="fas fa-calendar me-2"></i>\${exp.duration} |
+                    <i class="fas fa-map-marker-alt ms-2 me-1"></i>\${exp.location}
                 </div>
-                ${exp.clients && exp.clients.length > 0 ? `
+                \${exp.clients && exp.clients.length > 0 ? \`
                 <div class="experience-clients">
-                    <strong>${t.clients_label}:</strong> ${exp.clients.join(', ')}
+                    <strong>\${t.clients_label}:</strong> \${exp.clients.join(', ')}
                 </div>
-                ` : ''}
-                ${exp.technologiesLearned && exp.technologiesLearned.length > 0 ? `
+                \` : ''}
+                \${exp.technologiesLearned && exp.technologiesLearned.length > 0 ? \`
                 <div class="experience-technologies">
-                    <strong>${t.technologies_label}:</strong>
+                    <strong>\${t.technologies_label}:</strong>
                     <div class="tech-tags">
-                        ${exp.technologiesLearned.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                        \${exp.technologiesLearned.map(tech => \`<span class="tech-tag">\${tech}</span>\`).join('')}
                     </div>
                 </div>
-                ` : ''}
+                \` : ''}
                 <ul class="experience-description">
-                    ${exp.description.map(desc => `<li>${desc}</li>`).join('')}
+                    \${exp.description.map(desc => \`<li>\${desc}</li>\`).join('')}
                 </ul>
             </div>
         `;
@@ -39,6 +39,3 @@ function loadExperience(cvData, currentLang, observer, translations) {
         observer.observe(experienceItem.querySelector('.experience-card'));
     });
 }
-
-// Make function globally available
-window.loadExperience = loadExperience;

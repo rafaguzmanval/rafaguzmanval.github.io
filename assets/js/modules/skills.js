@@ -1,6 +1,6 @@
 // Skills section loading module
 
-function loadSkills(cvData, currentLang, observer, translations) {
+export function loadSkills(cvData, currentLang, observer, translations) {
     const skillsContainer = document.getElementById('skills-container');
     if (!skillsContainer) return;
     const sharedData = cvData.shared;
@@ -45,15 +45,12 @@ function loadSkills(cvData, currentLang, observer, translations) {
         categoryDiv.innerHTML = `
             <h4 class="skill-category-title">${categoryName}</h4>
             <div class="skill-list">
-                ${skillsByCategory[category].map(skill => `
-                    <span class="skill-item ${getLevelClass(skill.level)}">${skill.name}: ${getQualitativeLevel(skill.level)}</span>
-                `).join('')}
+                ${skillsByCategory[category].map(skill =>
+                    `<span class="skill-item ${getLevelClass(skill.level)}">${skill.name}: ${getQualitativeLevel(skill.level)}</span>`
+                ).join('')}
             </div>
         `;
         gridContainer.appendChild(categoryDiv);
         observer.observe(categoryDiv);
     });
 }
-
-// Make function globally available
-window.loadSkills = loadSkills;

@@ -181,7 +181,5 @@ const cvData = {
 }
 ;
 
-// Make it available globally for script tag loading
-if (typeof window !== 'undefined') {
-    window.cvData = cvData;
-}
+// Export for ES modules
+export default cvData;

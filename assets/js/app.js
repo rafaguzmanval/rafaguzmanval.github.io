@@ -1,8 +1,24 @@
 // CV Application Main Script
 // Orchestrates loading of templates and data
 
+import { PDFGenerator } from './modules/pdf-generator.js';
+import { 
+    animateOnScroll, 
+    setupSmoothScrolling, 
+    setupScrollSpy, 
+    loadTemplate, 
+    insertTemplate, 
+    replacePlaceholders 
+} from './modules/utils.js';
+import { loadPersonalInfo } from './modules/personal.js';
+import { loadSkills } from './modules/skills.js';
+import { loadExperience } from './modules/experience.js';
+import { loadEducation } from './modules/education.js';
+import { loadCertifications } from './modules/certifications.js';
+
 // Global variables
 let currentLang = 'es'; // Default language
+let pdfGenerator;
 
 document.addEventListener('DOMContentLoaded', async function() {
     console.log('DOM loaded, initializing CV application...');
@@ -11,6 +27,10 @@ document.addEventListener('DOMContentLoaded', async function() {
         // No asignar translations ni cvData, usar window.translations y window.cvData directamente
         console.log('Translations loaded:', window.translations);
         console.log('CV data loaded:', window.cvData);
+
+        // Initialize PDF Generator
+        pdfGenerator = new PDFGenerator(window.cvData, window.translations);
+        console.log('PDF Generator initialized');
 
         // Initialize observer for animations
         const observer = window.animateOnScroll();
@@ -24,6 +44,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         window.setupSmoothScrolling();
         window.setupScrollSpy();
         setupLanguageSwitcher(observer);
+        setupPDFDownloadButton();
         console.log('CV application initialized successfully');
 
     } catch (error) {
@@ -146,4 +167,16 @@ function setupLanguageSwitcher(observer) {
             }
         });
     });
+}
+
+function setupPDFDownloadButton() {
+    const downloadBtn = document.getElementById('download-pdf-btn');
+    if (downloadBtn) {
+        downloadBtn.addEventListener('click', () => {
+            pdfGenerator.generateAndDownload(currentLang);
+        });
+        console.log('PDF download button initialized');
+    } else {
+        console.warn('PDF download button not found');
+    }
 }

@@ -116,7 +116,5 @@ const translations = {
   }
 };
 
-// Make it available globally for script tag loading
-if (typeof window !== 'undefined') {
-    window.translations = translations;
-}
+// Export for ES modules
+export default translations;

@@ -1,6 +1,6 @@
 // Personal information loading module
 
-function loadPersonalInfo(cvData, currentLang) {
+export function loadPersonalInfo(cvData, currentLang) {
     const langData = cvData[currentLang];
     const sharedData = cvData.shared;
 
@@ -77,5 +77,3 @@ function loadPersonalInfo(cvData, currentLang) {
     const footerName = document.getElementById('footer-name');
     if (footerName) footerName.textContent = personalData.name;
 }
-
-window.loadPersonalInfo = loadPersonalInfo;

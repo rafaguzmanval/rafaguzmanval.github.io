@@ -1,6 +1,6 @@
 // Utility functions for the CV application
 
-function loadTemplate(templatePath) {
+export function loadTemplate(templatePath) {
     return fetch(templatePath)
         .then(response => {
             if (!response.ok) {
@@ -10,11 +10,11 @@ function loadTemplate(templatePath) {
         });
 }
 
-function insertTemplate(container, template) {
+export function insertTemplate(container, template) {
     container.innerHTML += template;
 }
 
-function animateOnScroll() {
+export function animateOnScroll() {
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -31,7 +31,7 @@ function animateOnScroll() {
     return observer;
 }
 
-function setupSmoothScrolling() {
+export function setupSmoothScrolling() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -46,9 +46,9 @@ function setupSmoothScrolling() {
     });
 }
 
-let scrollSpyInitialized = false;
+export let scrollSpyInitialized = false;
 
-function setupScrollSpy() {
+export function setupScrollSpy() {
     if (scrollSpyInitialized) return;
     scrollSpyInitialized = true;
 
@@ -74,17 +74,9 @@ function setupScrollSpy() {
     });
 }
 
-function replacePlaceholders(template, translations, currentLang) {
+export function replacePlaceholders(template, translations, currentLang) {
     const t = translations[currentLang];
     return template.replace(/\{\{(\w+)\}\}/g, (match, key) => {
         return t[key] || match;
     });
 }
-
-// Make functions globally available
-window.loadTemplate = loadTemplate;
-window.insertTemplate = insertTemplate;
-window.animateOnScroll = animateOnScroll;
-window.setupSmoothScrolling = setupSmoothScrolling;
-window.setupScrollSpy = setupScrollSpy;
-window.replacePlaceholders = replacePlaceholders;

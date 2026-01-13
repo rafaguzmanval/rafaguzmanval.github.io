@@ -17,16 +17,20 @@
         }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-size: 14px;
-            line-height: 1.3;
-            margin: 15px;
+            font-size: 12px;
+            line-height: 1.4;
+            margin: 20px;
             color: var(--dark-color);
             background: var(--white);
         }
         .pdf-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
+            gap: 20px;
+        }
+        
+        .section {
+            margin-bottom: 15px;
         }
         .left-column, .right-column {
             display: flex;
@@ -35,20 +39,24 @@
         .section { margin-bottom: 8px; }
         .hero-section {
             text-align: center;
-            margin-bottom: 10px;
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 8px;
+            margin-bottom: 15px;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 12px;
+            background: linear-gradient(135deg, var(--light-color) 0%, var(--white) 100%);
+            border-radius: 8px;
+            padding: 15px;
         }
         .profile-image {
-            width: 60px;
-            height: 60px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
-            border: 3px solid var(--primary-color);
-            margin-bottom: 5px;
+            border: 4px solid var(--primary-color);
+            margin-bottom: 8px;
+            object-fit: cover;
         }
-        #hero-name { font-size: 16px; font-weight: bold; color: var(--primary-color); margin: 5px 0; }
-        #hero-title { font-size: 12px; color: var(--gray); margin: 3px 0; }
-        #hero-location, #hero-email { font-size: 9px; color: var(--gray); margin: 2px 0; }
+        #hero-name { font-size: 20px; font-weight: bold; color: var(--primary-color); margin: 8px 0; }
+        #hero-title { font-size: 14px; color: var(--dark-color); margin: 5px 0; font-weight: 600; }
+        #hero-location, #hero-email { font-size: 11px; color: var(--gray); margin: 3px 0; }
         .section-title {
             font-size: 12px;
             font-weight: bold;
@@ -60,63 +68,63 @@
         .skills-container {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 10px;
         }
         .skill-category {
             background: var(--light-color);
-            padding: 5px;
+            padding: 8px;
             border-radius: 5px;
             border-left: 3px solid var(--primary-color);
         }
         .skill-category-title {
             font-weight: bold;
-            font-size: 11px;
-            margin-bottom: 3px;
+            font-size: 12px;
+            margin-bottom: 5px;
             color: var(--primary-color);
         }
         .skill-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 3px;
+            gap: 5px;
         }
         .skill-item {
             background: var(--primary-color);
             color: var(--white);
-            padding: 2px 4px;
-            border-radius: 3px;
-            font-size: 9px;
+            padding: 3px 6px;
+            border-radius: 12px;
+            font-size: 10px;
             font-weight: 500;
         }
         .experience-card, .education-card, .certification-card {
             background: var(--light-color);
-            padding: 5px;
-            margin-bottom: 5px;
+            padding: 8px;
+            margin-bottom: 8px;
             border-radius: 5px;
             border-left: 3px solid var(--secondary-color);
         }
         .company-logo, .school-logo {
-            width: 30px;
-            height: 30px;
-            margin-right: 5px;
+            width: 35px;
+            height: 35px;
+            margin-right: 8px;
             vertical-align: middle;
         }
         .company-name, .school-name {
             font-weight: bold;
-            font-size: 11px;
+            font-size: 12px;
             color: var(--primary-color);
         }
-        .position-title { font-size: 10px; color: var(--dark-color); margin: 2px 0; }
+        .position-title { font-size: 11px; color: var(--dark-color); margin: 3px 0; }
         .experience-duration, .education-location {
-            font-size: 9px;
+            font-size: 10px;
             color: var(--gray);
-            margin-bottom: 3px;
+            margin-bottom: 5px;
         }
         .experience-description {
-            font-size: 9px;
-            margin-top: 3px;
-            padding-left: 10px;
+            font-size: 10px;
+            margin-top: 5px;
+            padding-left: 12px;
         }
-        .experience-description li { margin-bottom: 2px; }
+        .experience-description li { margin-bottom: 3px; }
         @media print {
             body { margin: 10px; }
             .hero-section { page-break-after: avoid; }
