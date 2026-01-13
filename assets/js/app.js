@@ -24,16 +24,12 @@ document.addEventListener('DOMContentLoaded', async function() {
     console.log('DOM loaded, initializing CV application...');
 
     try {
-        // No asignar translations ni cvData, usar window.translations y window.cvData directamente
-        console.log('Translations loaded:', window.translations);
-        console.log('CV data loaded:', window.cvData);
-
         // Initialize PDF Generator
         pdfGenerator = new PDFGenerator(window.cvData, window.translations);
         console.log('PDF Generator initialized');
 
         // Initialize observer for animations
-        const observer = window.animateOnScroll();
+        const observer = animateOnScroll();
         console.log('Observer initialized');
 
         // Initialize with default language
@@ -41,8 +37,8 @@ document.addEventListener('DOMContentLoaded', async function() {
         console.log('Language initialized');
 
         // Setup interactions
-        window.setupSmoothScrolling();
-        window.setupScrollSpy();
+        setupSmoothScrolling();
+        setupScrollSpy();
         setupLanguageSwitcher(observer);
         setupPDFDownloadButton();
         console.log('CV application initialized successfully');
@@ -68,8 +64,8 @@ function loadAllTemplates() {
 
     // Load navbar first
     const navbarContainer = document.getElementById('navbar-container');
-    const navbarPromise = window.loadTemplate('templates/navbar.html').then(function(navbarContent) {
-        navbarContent = window.replacePlaceholders(navbarContent, window.translations, currentLang);
+    const navbarPromise = loadTemplate('templates/navbar.html').then(function(navbarContent) {
+        navbarContent = replacePlaceholders(navbarContent, window.translations, currentLang);
         navbarContainer.innerHTML = navbarContent;
         console.log('Navbar template loaded');
         return navbarContent;
@@ -91,8 +87,8 @@ function loadAllTemplates() {
     ];
 
     const templatePromises = templates.map(function(template) {
-        return window.loadTemplate(template).then(function(templateContent) {
-            templateContent = window.replacePlaceholders(templateContent, window.translations, currentLang);
+        return loadTemplate(template).then(function(templateContent) {
+            templateContent = replacePlaceholders(templateContent, window.translations, currentLang);
             console.log(`Template ${template} loaded`);
             return templateContent;
         }).catch(function(error) {
@@ -104,7 +100,7 @@ function loadAllTemplates() {
     // Wait for all templates to load, then insert in order
     const allTemplatesPromise = Promise.all(templatePromises).then(templateContents => {
         templateContents.forEach(content => {
-            window.insertTemplate(mainContent, content);
+            insertTemplate(mainContent, content);
         });
     });
 
@@ -133,15 +129,15 @@ async function switchLanguage(lang, observer) {
     }
 
     // Reload all data with new language
-    window.loadPersonalInfo(window.cvData, currentLang);
-    window.loadSkills(window.cvData, currentLang, observer, window.translations);
-    window.loadExperience(window.cvData, currentLang, observer, window.translations);
-    window.loadEducation(window.cvData, currentLang, observer, window.translations);
-    window.loadCertifications(window.cvData, currentLang, observer, window.translations);
+    loadPersonalInfo(window.cvData, currentLang);
+    loadSkills(window.cvData, currentLang, observer, window.translations);
+    loadExperience(window.cvData, currentLang, observer, window.translations);
+    loadEducation(window.cvData, currentLang, observer, window.translations);
+    loadCertifications(window.cvData, currentLang, observer, window.translations);
 
     // Re-setup interactions since navbar was reloaded
-    window.setupSmoothScrolling();
-    window.setupScrollSpy();
+    setupSmoothScrolling();
+    setupScrollSpy();
     setupLanguageSwitcher(observer);
 
     // Restore scroll position

@@ -181,5 +181,10 @@ const cvData = {
 }
 ;
 
-// Export for ES modules
-export default cvData;
+// Make available globally and as ES module
+window.cvData = cvData;
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = cvData;
+} else if (typeof exports !== 'undefined') {
+    exports.default = cvData;
+}

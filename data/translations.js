@@ -116,5 +116,10 @@ const translations = {
   }
 };
 
-// Export for ES modules
-export default translations;
+// Make available globally and as ES module
+window.translations = translations;
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = translations;
+} else if (typeof exports !== 'undefined') {
+    exports.default = translations;
+}
