@@ -143,6 +143,11 @@
             z-index: 1;
             text-align: left;
         }
+
+        .hero-contact a {
+            color: #ffeb3b;
+            text-decoration: underline;
+        }
         
         #hero-location, #hero-email, #hero-phone, #hero-linkedin, #hero-web { 
             font-size: 10px; 
@@ -468,9 +473,11 @@
             document.getElementById('hero-name').textContent = data?.personal?.name || 'Rafael Guzmán';
             document.getElementById('hero-title').textContent = data?.personal?.title || 'Ingeniero DevOps';
             document.getElementById('hero-location').innerHTML = `<i class="fas fa-map-marker-alt"></i> ${data?.personal?.location || 'Granada, España'}`;
-            document.getElementById('hero-email').innerHTML = `<i class="fas fa-envelope"></i> ${shared?.personal?.email || 'rafagval@gmail.com'}`;
-            document.getElementById('hero-phone').innerHTML = `<i class="fas fa-phone"></i> ${shared?.personal?.phone || '+34 609 766 130'}`;
-            document.getElementById('hero-web').innerHTML = `<i class="fas fa-globe"></i> ${shared?.personal?.website || 'rafagval.es'}`;
+            document.getElementById('hero-email').innerHTML = `<a href="mailto:${shared?.personal?.email || 'rafagval@gmail.com'}"><i class="fas fa-envelope"></i> ${shared?.personal?.email || 'rafagval@gmail.com'}</a>`;
+            document.getElementById('hero-phone').innerHTML = `<a href="tel:${shared?.personal?.phone?.replace(/\s/g, '') || '+34609766130'}"><i class="fas fa-phone"></i> ${shared?.personal?.phone || '+34 609 766 130'}</a>`;
+            const website = shared?.personal?.website || 'rafagval.es';
+            const websiteHref = website.startsWith('http') ? website : 'https://' + website;
+            document.getElementById('hero-web').innerHTML = `<a href="${websiteHref}"><i class="fas fa-globe"></i> ${website}</a>`;
 
             // Actualizar títulos de secciones (ahora están dentro de spans)
             document.querySelector('#about-title').textContent = t?.about_title || 'Acerca de Mí';
