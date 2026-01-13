@@ -13,6 +13,7 @@ const translations = {
 
     // Hero Section
     hero_email: "Email",
+    download_pdf: "Download CV",
 
     // Section Titles
     about_title: "About Me",
@@ -69,6 +70,7 @@ const translations = {
 
     // Hero Section
     hero_email: "Correo",
+    download_pdf: "Descargar CV",
 
     // Section Titles
     about_title: "Acerca de Mí",

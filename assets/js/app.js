@@ -2,7 +2,7 @@
 // Orchestrates loading of templates and data
 
 // Global variables
-let currentLang = 'es'; // Default language
+window.currentLang = 'es'; // Default language
 
 document.addEventListener('DOMContentLoaded', async function() {
     console.log('DOM loaded, initializing CV application...');
@@ -48,7 +48,7 @@ function loadAllTemplates() {
     // Load navbar first
     const navbarContainer = document.getElementById('navbar-container');
     const navbarPromise = window.loadTemplate('templates/navbar.html').then(function(navbarContent) {
-        navbarContent = window.replacePlaceholders(navbarContent, window.translations, currentLang);
+        navbarContent = window.replacePlaceholders(navbarContent, window.translations, window.currentLang);
         navbarContainer.innerHTML = navbarContent;
         console.log('Navbar template loaded');
         return navbarContent;
@@ -71,7 +71,7 @@ function loadAllTemplates() {
 
     const templatePromises = templates.map(function(template) {
         return window.loadTemplate(template).then(function(templateContent) {
-            templateContent = window.replacePlaceholders(templateContent, window.translations, currentLang);
+            templateContent = window.replacePlaceholders(templateContent, window.translations, window.currentLang);
             console.log(`Template ${template} loaded`);
             return templateContent;
         }).catch(function(error) {
@@ -93,7 +93,7 @@ function loadAllTemplates() {
 
 async function switchLanguage(lang, observer) {
     console.log('Switching language to:', lang);
-    currentLang = lang;
+    window.currentLang = lang;
 
     // Save current scroll position
     const scrollY = window.scrollY;
@@ -105,18 +105,18 @@ async function switchLanguage(lang, observer) {
     await loadAllTemplates();
 
     // Update language indicator
-    const t = window.translations[currentLang];
+    const t = window.translations[window.currentLang];
     const langElem = document.getElementById('current-lang');
     if (langElem) {
         langElem.textContent = t['lang_' + lang];
     }
 
     // Reload all data with new language
-    window.loadPersonalInfo(window.cvData, currentLang);
-    window.loadSkills(window.cvData, currentLang, observer, window.translations);
-    window.loadExperience(window.cvData, currentLang, observer, window.translations);
-    window.loadEducation(window.cvData, currentLang, observer, window.translations);
-    window.loadCertifications(window.cvData, currentLang, observer, window.translations);
+    window.loadPersonalInfo(window.cvData, window.currentLang);
+    window.loadSkills(window.cvData, window.currentLang, observer, window.translations);
+    window.loadExperience(window.cvData, window.currentLang, observer, window.translations);
+    window.loadEducation(window.cvData, window.currentLang, observer, window.translations);
+    window.loadCertifications(window.cvData, window.currentLang, observer, window.translations);
 
     // Re-setup interactions since navbar was reloaded
     window.setupSmoothScrolling();

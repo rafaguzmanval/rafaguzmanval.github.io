@@ -78,4 +78,26 @@ function loadPersonalInfo(cvData, currentLang) {
     if (footerName) footerName.textContent = personalData.name;
 }
 
+// Function to download PDF based on current language
+function downloadPDF() {
+    // Get the current language from the global variable in app.js
+    const lang = window.currentLang || 'es'; // Default to Spanish if not set
+    
+    let pdfUrl = '';
+    if (lang === 'en') {
+        pdfUrl = 'data/CV-rafael-guzman-en.pdf';
+    } else {
+        pdfUrl = 'data/CV-rafael-guzman-es.pdf';
+    }
+    
+    // Create a temporary link and trigger download
+    const link = document.createElement('a');
+    link.href = pdfUrl;
+    link.download = `CV-rafael-guzman-${lang}.pdf`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
 window.loadPersonalInfo = loadPersonalInfo;
+window.downloadPDF = downloadPDF;
