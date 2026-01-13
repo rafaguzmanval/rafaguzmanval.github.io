@@ -1,50 +1,52 @@
 # Plantilla PDF Mejorada
 
-Se ha realizado una mejora completa de la plantilla PDF (`pdf-template.html`) para hacerla más atractiva visualmente. A continuación se detallan los cambios realizados:
+## Descripción
+Esta plantilla PDF ha sido mejorada para ofrecer una apariencia visual más atractiva y profesional, manteniendo todas las funcionalidades dinámicas originales del CV.
 
-## Cambios Visuales Realizados
+## Características principales
 
-### 1. Diseño Moderno y Profesional
-- Se implementó un diseño con gradientes y sombras para un aspecto más moderno
-- Se utilizó un sistema de rejilla (grid) para organizar mejor la información
-- Se añadió un contenedor principal con bordes redondeados y sombra para destacar el CV
+### 1. Traducciones mejoradas
+- La etiqueta de la nota media universitaria ahora se traduce correctamente como "Nota Media" en español y "GPA" en inglés
+- Se utiliza el sistema de traducciones existente para mostrar la etiqueta apropiada según el idioma seleccionado
 
-### 2. Colores y Paleta Visual
-- Nuevo esquema de colores con gradientes azules (de #1a73e8 a #34aadc)
-- Colores secundarios en verde (#0d9d76) para secciones específicas
-- Fondo con degradado sutil para dar profundidad
+### 2. Diseño visual mejorado
+- **Sección de Educación**:
+  - Nueva clase CSS `.education-gpa` para resaltar visualmente la nota media
+  - Nueva clase CSS `.education-degree` para mejorar la presentación del título académico
+  - Estilo consistente con colores profesionales y resaltados adecuados
 
-### 3. Tipografía y Jerarquía Visual
-- Mejora en la jerarquía de información con tamaños y pesos de fuente adecuados
-- Títulos de sección con iconos Font Awesome para mejor identificación visual
-- Uso consistente de estilos para categorías y subcategorías
+- **Sección de Experiencia Laboral**:
+  - Nueva clase CSS `.job-position` para posiciones profesionales
+  - Nueva clase CSS `.job-duration` para fechas y ubicaciones
+  - Mejor jerarquía visual y legibilidad
 
-### 4. Elementos Interactivos
-- Efectos hover en tarjetas de experiencia, educación y certificaciones
-- Transiciones suaves para mejorar la experiencia visual
+- **Sección de Certificaciones**:
+  - Nueva clase CSS `.certification-issuer` para emisores de certificaciones
+  - Nueva clase CSS `.certification-details` para fechas y credenciales
+  - Presentación más clara y organizada
 
-### 5. Sección de Encabezado (Hero)
-- Fondo degradado con efecto visual especial
-- Imagen de perfil más grande y con mejor estilo
-- Texto con sombra para mejor legibilidad sobre fondo coloreado
-- Información de contacto organizada horizontalmente
+- **Sección de Habilidades**:
+  - Mejora visual de la clase `.skill-category-title` para categorías de habilidades
+  - Iconografía consistente con Font Awesome
 
-### 6. Tarjetas de Contenido
-- Cada sección (experiencia, educación, certificaciones) tiene un diseño de tarjeta con bordes laterales coloreados
-- Estilo de habilidades con etiquetas circulares y colores diferenciados
-- Mejor organización visual de listas y descripciones
+### 3. Elementos visuales
+- Gradientes sutiles para profundidad visual
+- Sombras y bordes que mejoran la jerarquía visual
+- Efectos de hover para interacción visual
+- Espaciado y tipografía optimizados
+- Colores coherentes con la identidad visual
 
-### 7. Optimización para Impresión
-- Mantenimiento de estilos específicos para impresión
-- Ajustes para asegurar la correcta división de páginas
+### 4. Funcionalidades mantenidas
+- Soporte completo para datos dinámicos desde `cv-data.js`
+- Sistema de traducción multilingüe (español/inglés)
+- Compatibilidad con impresión
+- Responsive design
+- Todos los elementos interactivos funcionales
 
-## Funcionalidad Preservada
+## Uso
+La plantilla se puede usar de la misma manera que la versión original, simplemente reemplazando el archivo HTML y beneficiándose de la nueva apariencia visual.
 
-Toda la funcionalidad dinámica original se ha mantenido:
-- Carga de datos desde `cv-data.js`
-- Soporte multilenguaje (es/en)
-- Rellenado automático de información personal, experiencia, habilidades, etc.
+Para cambiar el idioma, usar el parámetro `?lang=es` o `?lang=en` en la URL.
 
-## Archivo Resultante
-
-El archivo `pdf-template.html` ahora presenta un diseño mucho más atractivo y profesional, manteniendo todas las funcionalidades originales del CV dinámico.
+## Archivos modificados
+- `pdf-template.html` - Plantilla principal con mejoras visuales y soporte para traducciones de la nota media
