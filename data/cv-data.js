@@ -11,7 +11,7 @@ const cvData = {
       phone: "+34 609 766 130",
       linkedin: "https://www.linkedin.com/in/rafael-g-710111259/",
       github: "https://github.com/rafaguzmanval",
-      website: "https://rafaguzmanval.github.io",
+      website: "https://rafagval.es",
       profileImage: "data/avatar.jpg"
     },
     skills: [

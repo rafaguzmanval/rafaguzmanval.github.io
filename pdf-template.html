@@ -144,7 +144,7 @@
             text-align: left;
         }
         
-        #hero-location, #hero-email, #hero-phone, #hero-linkedin { 
+        #hero-location, #hero-email, #hero-phone, #hero-linkedin, #hero-web { 
             font-size: 10px; 
             opacity: 0.9; 
             margin: 1px 0; 
@@ -401,6 +401,7 @@
                         <p id="hero-location"><i class="fas fa-map-marker-alt"></i> Granada, España</p>
                         <p id="hero-email"><i class="fas fa-envelope"></i> rafagval@gmail.com</p>
                         <p id="hero-phone"><i class="fas fa-phone"></i> +34 609 766 130</p>
+                        <p id="hero-web"><i class="fas fa-globe"></i> rafagval.es</p>
                     </div>
                 </div>
             </div>
@@ -469,6 +470,7 @@
             document.getElementById('hero-location').innerHTML = `<i class="fas fa-map-marker-alt"></i> ${data?.personal?.location || 'Granada, España'}`;
             document.getElementById('hero-email').innerHTML = `<i class="fas fa-envelope"></i> ${shared?.personal?.email || 'rafagval@gmail.com'}`;
             document.getElementById('hero-phone').innerHTML = `<i class="fas fa-phone"></i> ${shared?.personal?.phone || '+34 609 766 130'}`;
+            document.getElementById('hero-web').innerHTML = `<i class="fas fa-globe"></i> ${shared?.personal?.website || 'rafagval.es'}`;
 
             // Actualizar títulos de secciones (ahora están dentro de spans)
             document.querySelector('#about-title').textContent = t?.about_title || 'Acerca de Mí';
