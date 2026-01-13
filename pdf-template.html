@@ -163,16 +163,6 @@
             box-shadow: var(--section-shadow);
         }
         
-        .skill-category-title {
-            font-weight: 600;
-            font-size: 12px;
-            margin-bottom: 8px;
-            color: var(--secondary-color);
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        
         .skill-list {
             display: flex;
             flex-wrap: wrap;
@@ -202,6 +192,61 @@
         .experience-card:hover, .education-card:hover, .certification-card:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .education-gpa {
+            font-weight: 600;
+            color: var(--secondary-color);
+            font-size: 11px;
+            margin-top: 8px;
+            padding: 6px 10px;
+            background: rgba(13, 157, 118, 0.1);
+            border-radius: 4px;
+            display: inline-block;
+            border: 1px solid rgba(13, 157, 118, 0.2);
+        }
+        
+        .education-degree {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin: 5px 0;
+        }
+        
+        .certification-issuer {
+            font-weight: 600;
+            color: var(--secondary-color);
+            font-size: 11px;
+            margin: 5px 0;
+        }
+        
+        .certification-details {
+            font-size: 10px;
+            color: var(--gray);
+            margin-top: 4px;
+        }
+        
+        .job-position {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 12px;
+            margin: 5px 0;
+        }
+        
+        .job-duration {
+            font-size: 10px;
+            color: var(--gray);
+            margin-bottom: 6px;
+            font-style: italic;
+        }
+        
+        .skill-category-title {
+            font-weight: 600;
+            font-size: 12px;
+            margin-bottom: 8px;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
         
         .company-logo, .school-logo {
@@ -400,8 +445,8 @@
             expDiv.className = 'experience-card';
             expDiv.innerHTML = `
                 ${exp.logo ? `<img src="${exp.logo}" alt="${exp.company} logo" class="company-logo">` : ''}<div class="company-name">${exp.company}</div>
-                <div class="position-title">${exp.position}</div>
-                <div class="experience-duration">${exp.duration} - ${exp.location}</div>
+                <div class="job-position">${exp.position}</div>
+                <div class="job-duration">${exp.duration} - ${exp.location}</div>
                 ${exp.clients && exp.clients.length ? `<div>${t.clients_label}: ${exp.clients.join(', ')}</div>` : ''}
                 <ul class="experience-description">${exp.description.map(desc => `<li>${desc}</li>`).join('')}</ul>
             `;
@@ -415,9 +460,9 @@
             eduDiv.className = 'education-card';
             eduDiv.innerHTML = `
                 ${edu.logo ? `<img src="${edu.logo}" alt="${edu.school} logo" class="school-logo">` : ''}<div class="school-name">${edu.school}</div>
-                <div class="position-title">${edu.degree}</div>
+                <div class="education-degree">${edu.degree}</div>
                 <div class="education-location">${edu.duration} - ${edu.location}</div>
-                <div>GPA: ${edu.gpa}</div>
+                <div class="education-gpa">${t.gpa_label}: ${edu.gpa}</div>
             `;
             educationContainer.appendChild(eduDiv);
         });
@@ -429,8 +474,8 @@
             certDiv.className = 'certification-card';
             certDiv.innerHTML = `
                 ${cert.logo ? `<img src="${cert.logo}" alt="${cert.name} logo" class="company-logo">` : ''}<div class="company-name">${cert.name}</div>
-                <div class="position-title">${cert.issuer}</div>
-                <div class="experience-duration">${cert.date} - ${cert.credentialId}</div>
+                <div class="certification-issuer">${cert.issuer}</div>
+                <div class="certification-details">${cert.date} - ${cert.credentialId}</div>
             `;
             certificationsContainer.appendChild(certDiv);
         });
