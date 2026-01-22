@@ -1,0 +1,20 @@
+<section id="certifications" class="py-5">
+    <div class="container">
+        <h2 class="section-title text-center mb-5">{{ certifications_title }}</h2>
+        <div class="row" id="certifications-container">
+            {% for cert in certifications %}
+            <div class="col-lg-6 mx-auto">
+                <div class="certification-card">
+                    <img src="{{ cert.logo }}" alt="{{ cert.name }} logo" class="certification-logo">
+                    <div class="certification-name">{{ cert.name }}</div>
+                    <div class="certification-issuer">{{ cert.issuer }}</div>
+                    <div class="certification-details">
+                        <i class="fas fa-calendar me-2"></i>{{ cert.date }}
+                        {% if cert.has_credential_id %}<br><i class="fas fa-id-badge me-2"></i>{{ cert.cert_id_label }}: {{ cert.credentialId }}{% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

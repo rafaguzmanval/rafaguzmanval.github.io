@@ -1,0 +1,17 @@
+<section id="contact" class="py-5 bg-dark text-light">
+    <div class="container">
+        <h2 class="section-title text-center mb-5 text-primary">{{ contact_title }}</h2>
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <p class="lead text-center mb-4 text-light">{{ contact_intro }}</p>
+                <div class="contact-info text-center">
+                    <p><i class="fas fa-envelope me-2 text-primary"></i> <a href="https://mail.google.com/mail/?view=cm&fs=1&to={{ email }}" target="_blank" class="text-light text-decoration-underline">{{ email }}</a></p>
+                    <p><i class="fas fa-map-marker-alt me-2 text-primary"></i> <span class="text-light">{{ contact_location }}</span></p>
+                    <p><i class="fab fa-linkedin me-2 text-primary"></i> <a href="{{ linkedin_url }}" target="_blank" class="text-light text-decoration-underline">{{ linkedin_url }}</a></p>
+                    <p><i class="fab fa-github me-2 text-primary"></i> <a href="{{ github_url }}" target="_blank" class="text-light text-decoration-underline">{{ github_url }}</a></p>
+                    <p><i class="fas fa-globe me-2 text-primary"></i> <a href="{{ website_url }}" target="_blank" class="text-light text-decoration-underline">{{ website_url }}</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
