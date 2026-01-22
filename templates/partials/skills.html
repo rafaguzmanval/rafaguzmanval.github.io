@@ -1,0 +1,17 @@
+<section id="skills" class="py-5 bg-light">
+    <div class="container">
+        <h2 class="section-title text-center mb-5">{{ skills_title }}</h2>
+        <div class="skills-grid">
+            {% for category_key, category_data in skill_categories.items() %}
+            <div class="skill-category">
+                <h4 class="skill-category-title"><i class="fas fa-circle"></i> {{ category_data.category_name }}</h4>
+                <div class="skill-list">
+                    {% for skill in category_data.skills %}
+                    <span class="skill-item {{ skill.level_class }}">{{ skill.name }}: {{ skill.level_text }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

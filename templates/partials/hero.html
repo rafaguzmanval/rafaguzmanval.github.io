@@ -1,0 +1,22 @@
+<section id="hero" class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-4 text-center mb-4 mb-lg-0">
+                <img src="../data/avatar.jpg" alt="Profile" class="profile-image rounded-circle">
+            </div>
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold">{{ hero_name }}</h1>
+                <h2 class="text-primary mb-4">{{ hero_title }}</h2>
+                <p class="lead mb-4"><i class="fas fa-map-marker-alt me-2"></i>{{ hero_location }}</p>
+                 <div class="social-links mb-4 d-flex flex-column flex-md-row">
+                     <a href="{{ linkedin_url }}" class="btn btn-light mb-3 mb-md-0 me-md-2" target="_blank"><i class="fab fa-linkedin"></i> {{ linkedin_text }}</a>
+                     <a href="{{ github_url }}" class="btn btn-dark mb-3 mb-md-0 me-md-2" target="_blank"><i class="fab fa-github"></i> {{ github_text }}</a>
+                     <a href="mailto:{{ email }}" class="btn btn-warning mb-3 mb-md-0 me-md-2" target="_blank"><i class="fas fa-envelope"></i> {{ email_text }}</a>
+                     <a href="{{ pdf_url }}" class="btn btn-success mb-3 mb-md-0" download>
+                         <i class="fas fa-download"></i> {{ download_pdf_text }}
+                     </a>
+                 </div>
+            </div>
+        </div>
+    </div>
+</section>

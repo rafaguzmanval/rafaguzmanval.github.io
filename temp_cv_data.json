@@ -1,7 +1,3 @@
-// CV Data - Edit this file to customize your resume
-// This is the template data file. Replace with your actual information.
-// Organized with shared data and language-specific translations.
-
 const cvData = {
   // Shared data across all languages (links, URLs, technical data)
   shared: {

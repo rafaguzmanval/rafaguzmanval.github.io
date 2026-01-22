@@ -1,0 +1,40 @@
+<section id="experience" class="py-5">
+    <div class="container">
+        <h2 class="section-title text-center mb-5">{{ experience_title }}</h2>
+        <div class="timeline">
+            {% for exp in experiences %}
+            <div class="timeline-item">
+                <div class="experience-card">
+                    <img src="{{ exp.logo }}" alt="{{ exp.company }} logo" class="company-logo">
+                    <div class="company-name">{{ exp.company }}</div>
+                    <div class="position-title">{{ exp.position }}</div>
+                    <div class="experience-duration">
+                        <i class="fas fa-calendar me-2"></i>{{ exp.duration }} |
+                        <i class="fas fa-map-marker-alt ms-2 me-1"></i>{{ exp.location }}
+                    </div>
+                    {% if exp.has_clients %}
+                    <div class="experience-clients">
+                        <strong>{{ exp.clients_label }}:</strong> {{ exp.client_list }}
+                    </div>
+                    {% endif %}
+                    {% if exp.has_technologies %}
+                    <div class="experience-technologies">
+                        <strong>{{ exp.technologies_label }}:</strong>
+                        <div class="tech-tags">
+                            {% for tech in exp.tech_list %}
+                            <span class="tech-tag">{{ tech }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                    <ul class="experience-description">
+                        {% for desc in exp.descriptions %}
+                        <li>{{ desc }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
