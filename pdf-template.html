@@ -397,16 +397,16 @@
         <section class="hero-section section">
             <div class="hero-grid">
                 <div class="hero-left">
-                    <img id="profile-image" src="data/avatar.jpg" alt="Profile" class="profile-image">
-                    <h1 id="hero-name">Rafael Guzmán</h1>
-                    <h2 id="hero-title">Ingeniero DevOps</h2>
+                    <img id="profile-image" src="" alt="Profile" class="profile-image">
+                    <h1 id="hero-name"></h1>
+                    <h2 id="hero-title"></h2>
                 </div>
                 <div class="hero-right">
                     <div class="hero-contact">
-                        <p id="hero-location"><i class="fas fa-map-marker-alt"></i> Granada, España</p>
-                        <p id="hero-email"><i class="fas fa-envelope"></i> rafagval@gmail.com</p>
-                        <p id="hero-phone"><i class="fas fa-phone"></i> +34 609 766 130</p>
-                        <p id="hero-web"><i class="fas fa-globe"></i> rafagval.es</p>
+                        <p id="hero-location"></p>
+                        <p id="hero-email"></p>
+                        <p id="hero-phone"></p>
+                        <p id="hero-web"></p>
                     </div>
                 </div>
             </div>
@@ -414,15 +414,15 @@
 
         <!-- About Section -->
         <section class="section">
-            <h3 class="section-title"><i class="fas fa-user"></i> <span id="about-title">Acerca de Mí</span></h3>
-            <p class="about-content" id="about-summary">Ingeniero DevOps con experiencia en desarrollo de pipelines CI/CD, gestión de infraestructuras en la nube y despliegue de aplicaciones móviles. Graduado en Ingeniería Informática por la Universidad de Granada, apasionado por la automatización de procesos y la mejora de la eficiencia operativa.</p>
+            <h3 class="section-title"><i class="fas fa-user"></i> <span id="about-title"></span></h3>
+            <p class="about-content" id="about-summary"></p>
         </section>
 
         <div class="pdf-grid">
             <div class="left-column">
                 <!-- Skills Section -->
                 <section class="section">
-                    <h3 class="section-title"><i class="fas fa-code"></i> <span id="skills-title">Habilidades Técnicas</span></h3>
+                    <h3 class="section-title"><i class="fas fa-code"></i> <span id="skills-title"></span></h3>
                     <div class="skills-container" id="skills-container">
                         <!-- Skills will be populated -->
                     </div>
@@ -430,7 +430,7 @@
 
                 <!-- Education Section -->
                 <section class="section">
-                    <h3 class="section-title"><i class="fas fa-graduation-cap"></i> <span id="education-title">Educación</span></h3>
+                    <h3 class="section-title"><i class="fas fa-graduation-cap"></i> <span id="education-title"></span></h3>
                     <div id="education-container">
                         <!-- Education will be populated -->
                     </div>
@@ -438,7 +438,7 @@
 
                 <!-- Certifications Section -->
                 <section class="section">
-                    <h3 class="section-title"><i class="fas fa-certificate"></i> <span id="certifications-title">Certificaciones</span></h3>
+                    <h3 class="section-title"><i class="fas fa-certificate"></i> <span id="certifications-title"></span></h3>
                     <div id="certifications-container">
                         <!-- Certifications will be populated -->
                     </div>
@@ -448,7 +448,7 @@
             <div class="right-column">
                 <!-- Experience Section -->
                 <section class="section">
-                    <h3 class="section-title"><i class="fas fa-briefcase"></i> <span id="experience-title">Experiencia Laboral</span></h3>
+                    <h3 class="section-title"><i class="fas fa-briefcase"></i> <span id="experience-title"></span></h3>
                     <div id="experience-container">
                         <!-- Experience will be populated -->
                     </div>
@@ -457,19 +457,27 @@
         </div>
     </div>
 
-    <script src="data/cv-data.js"></script>
-    <script src="data/translations.js"></script>
     <script>
-        window.onload = function() {
+        window.onload = async function() {
             // Get language from URL parameter, default to 'es'
             const urlParams = new URLSearchParams(window.location.search);
             const lang = urlParams.has('lang') && ['en', 'es'].includes(urlParams.get('lang')) ? urlParams.get('lang') : 'es';
 
-            const data = window.cvData[lang];
-            const shared = window.cvData.shared;
-            const t = window.translations[lang];
+            // Load translations and CV data from JSON files
+            const [translationsRes, cvDataRes] = await Promise.all([
+                fetch('data/translations.json'),
+                fetch('data/cv-data.json')
+            ]);
+            
+            const translations = await translationsRes.json();
+            const cvData = await cvDataRes.json();
+
+            const data = cvData[lang];
+            const shared = cvData.shared;
+            const t = translations[lang];
 
             // Populate content
+            document.getElementById('profile-image').src = shared?.personal?.profileImage || 'data/avatar.jpg';
             document.getElementById('hero-name').textContent = data?.personal?.name || 'Rafael Guzmán';
             document.getElementById('hero-title').textContent = data?.personal?.title || 'Ingeniero DevOps';
             document.getElementById('hero-location').innerHTML = `<i class="fas fa-map-marker-alt"></i> ${data?.personal?.location || 'Granada, España'}`;

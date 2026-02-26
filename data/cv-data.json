@@ -22,7 +22,7 @@
       },
       {
         "name": "Windows",
-        "level": 70,
+        "level": 90,
         "category": "systems"
       },
       {
@@ -37,7 +37,7 @@
       },
       {
         "name": "Jenkins",
-        "level": 82,
+        "level": 90,
         "category": "infrastructure"
       },
       {
@@ -67,7 +67,7 @@
       },
       {
         "name": "Monitoring (Prometheus/Grafana)",
-        "level": 20,
+        "level": 40,
         "category": "infrastructure"
       },
       {
@@ -159,7 +159,7 @@
         "issuer": "Cambridge Assessment English",
         "date": "2025",
         "credentialId": "D2133228",
-        "logo": "https://www.cam.ac.uk/sites/default/files/secondary-logo-stacked.png"
+        "logo": "/assets/cambridge.png"
       }
     ]
   },
@@ -168,7 +168,7 @@
       "title": "DevOps Engineer",
       "location": "Granada, Spain"
     },
-    "summary": "DevOps Engineer with experience in CI/CD pipeline development, cloud infrastructure management, and mobile application deployment. Computer Engineering graduate from the University of Granada, passionate about process automation and improving operational efficiency.",
+    "summary": "DevOps Engineer with experience in CI/CD pipeline development, infrastructure management, and android and iOS application deployment. Computer Engineering graduate from the University of Granada, passionate about process automation and improving operational efficiency.",
     "experience": [
       {
         "company": "Metaenlace",
@@ -191,7 +191,7 @@
           "MLOps",
           "LLM"
         ],
-        "logo": "https://metaenlace.com/wp-content/uploads/2018/08/metaenlace-talento-tecnologico.png",
+        "logo": "/assets/metaenlace.jpeg",
         "description": [
           "📚 Completed a one-month internal training program focused on Kubernetes, Terraform, Ansible, and Nexus",
           "🔧 Implemented Jenkins pipelines for Angular and Spring Boot applications, publishing artifacts to Nexus and Azure",
@@ -217,12 +217,15 @@
           "Unity",
           "C#"
         ],
-        "logo": "https://arvision.es/wp-content/uploads/2024/01/logoar.webp",
+        "logo": "/assets/arvision.webp",
         "description": [
           "🚀 Built continuous deployment pipelines for Google Play and the Apple App Store using Jenkins and Fastlane",
           "⚡ Reduced deployment time for more than 100 applications from one month to one day",
           "🤝 Collaborated with the development team to fix bugs and optimize mobile application performance",
-          "🥽 Developed a virtual reality application for Meta Quest 3 headsets"
+          "🥽 Developed a virtual reality application for Meta Quest 3 headsets",
+          "👥 Worked in an Agile environment with daily stand-ups, sprint planning, and retrospectives",
+          "⏱️ Delivered critical releases under tight deadlines while maintaining high quality standards",
+          "🔗 Facilitated cross-functional collaboration between developers, designers, and stakeholders"
         ]
       }
     ],
@@ -233,7 +236,7 @@
         "duration": "2018 - 2023",
         "location": "Granada, Spain",
         "gpa": "7.5 / 10.0",
-        "logo": "https://i0.wp.com/canal.ugr.es/wp-content/uploads/2017/07/logo-UGR-color-vertical.jpg"
+        "logo": "/assets/ugr.webp"
       }
     ],
     "projects": [
@@ -248,7 +251,7 @@
       "title": "Ingeniero DevOps",
       "location": "Granada, España"
     },
-    "summary": "Ingeniero DevOps con experiencia en desarrollo de pipelines CI/CD, gestión de infraestructuras y despliegue de aplicaciones móviles. Graduado en Ingeniería Informática por la Universidad de Granada, apasionado por la automatización de procesos",
+    "summary": "Ingeniero DevOps con experiencia en desarrollo de pipelines CI/CD con Jenkins, gestión de infraestructuras y despliegue de aplicaciones móviles Android/iOS. Graduado en Ingeniería Informática por la Universidad de Granada y apasionado por la automatización de procesos",
     "experience": [
       {
         "company": "Metaenlace",
@@ -271,7 +274,7 @@
           "MLOps",
           "LLM"
         ],
-        "logo": "https://metaenlace.com/wp-content/uploads/2018/08/metaenlace-talento-tecnologico.png",
+        "logo": "/assets/metaenlace.jpeg",
         "description": [
           "📚 Completé un programa interno de formación de un mes enfocado en Kubernetes, Terraform, Ansible y Nexus",
           "🔧 Implementé pipelines de Jenkins para aplicaciones Angular y Spring Boot, subiendo artefactos en Nexus y Azure",
@@ -297,12 +300,15 @@
           "Unity",
           "C#"
         ],
-        "logo": "https://arvision.es/wp-content/uploads/2024/01/logoar.webp",
+        "logo": "/assets/arvision.webp",
         "description": [
           "🚀 Construí pipelines de despliegue continuo para Google Play y la App Store de Apple utilizando Jenkins y Fastlane",
-          "⚡ Reduje el tiempo de despliegue para más de 100 aplicaciones de un mes a un día",
+          "⚡ Reduje el tiempo de despliegue para más de 100 aplicaciones de casi un mes de trabajo a un día",
           "🤝 Colaboré con el equipo de desarrollo para corregir errores y optimizar el rendimiento de aplicaciones móviles",
-          "🥽 Desarrollé una aplicación de realidad virtual para cascos Meta Quest 3"
+          "🥽 Desarrollé una aplicación de realidad virtual para cascos Meta Quest 3",
+          "👥 Trabajé en un entorno Agile con daily meetings, planificación de sprints y retrospectivas",
+          "⏱️ Entregué releases críticos bajo plazos ajustados manteniendo altos estándares de calidad",
+          "🔗 Facilité la colaboración entre desarrolladores, diseñadores y stakeholders"
         ]
       }
     ],
@@ -313,7 +319,7 @@
         "duration": "2018 - 2023",
         "location": "Granada, España",
         "gpa": "7.5 / 10.0",
-        "logo": "https://i0.wp.com/canal.ugr.es/wp-content/uploads/2017/07/logo-UGR-color-vertical.jpg"
+        "logo": "/assets/ugr.webp"
       }
     ],
     "projects": [
